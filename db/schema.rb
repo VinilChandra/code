@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20140728104822) do
     t.datetime "updated_at"
   end
 
-  add_index "simple_captcha_data", ["key"], name: "idx_key"
+  add_index "simple_captcha_data", ["key"], name: "idx_key", using: :btree
 
   create_table "trainingregistrations", force: true do |t|
     t.string   "name"
@@ -152,7 +152,7 @@ ActiveRecord::Schema.define(version: 20140728104822) do
     t.datetime "password_reset_sent_at"
   end
 
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
   create_table "usertrainings", force: true do |t|
     t.integer  "user_id"
