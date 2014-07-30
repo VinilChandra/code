@@ -1,6 +1,7 @@
 class JobregistrationsController < ApplicationController
     def show
           # binding.pry
+          @current = current_user
         @jobs=Jobregistration.new
     end
 
