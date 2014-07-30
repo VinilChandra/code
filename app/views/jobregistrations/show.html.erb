@@ -38,7 +38,7 @@ body {
   <tr>
 
     <td align="right">Age </td>
-    <td colspan="5"><input type="text" name="jobregistration[age]" id="textfield2" /></td>
+    <td colspan="5"><input type="text" name="jobregistration[age]" id="textfield2" value = "<%=@current.name%>"/></td>
   </tr>
 <!-- ________________________________________ -->
 
@@ -61,21 +61,21 @@ body {
   </tr>
   <tr>
     <td align="right">Town / Village  </td>
-    <td colspan="5"><input type="text" name="jobregistration[village]" id="textfield5" /></td>
+    <td colspan="5"><input type="text" name="jobregistration[village]" id="textfield5" value = "<%=@current.citytown%>"/></td>
   </tr>
   <tr>
     <td align="right">District </td>
-    <td width="144"><input type="text" name="jobregistration[district]" id="textfield6" /></td>
+    <td width="144"><input type="text" name="jobregistration[district]" id="textfield6"value = "<%=@current.dist%> "/></td>
     <td width="148" align="right">State  </td>
-    <td colspan="3"><input type="text" name="jobregistration[state]" id="textfield7" /></td>
+    <td colspan="3"><input type="text" name="jobregistration[state]" id="textfield7"value = "<%=@current.state%>" /></td>
   </tr>
   <tr>
     <td align="right">Phone  </td>
-    <td colspan="5"><input type="text" name="jobregistration[phone]" id="textfield8" /></td>
+    <td colspan="5"><input type="text" name="jobregistration[phone]" id="textfield8"value = "<%=@current.phone%> "/></td>
   </tr>
   <tr>
     <td align="right">Email  </td>
-    <td colspan="5"><input type="text" name="jobregistration[email]" id="textfield9" /></td>
+    <td colspan="5"><input type="text" name="jobregistration[email]" id="textfield9" value = "<%=@current.email%>"/></td>
   </tr>
   <tr>
     <td align="right">Exp  </td>
