@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+en:
+  simple_captcha:
+    placeholder: "Enter the text "
+    label: ":"

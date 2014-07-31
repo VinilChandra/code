@@ -2,7 +2,7 @@ development:
   adapter: mysql
   database: panimutlu_development
   username: root
-  password: passw0rd
+  password: password
   host: localhost
 test:
   adapter: mysql
