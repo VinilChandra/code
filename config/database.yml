@@ -2,17 +2,17 @@ development:
   adapter: mysql
   database: panimutlu_development
   username: root
-  password: Emirate7
+  password: passw0rd
   host: localhost
 test:
   adapter: mysql
   database: panimutlu_test
   username: root
-  password: Emirate7
+  password: passw0rd
   host: localhost
 production:
   adapter: mysql
   database: panimutlu_production
   username: root
-  password: Emirate7
+  password: passw0rd
   host: localhost
