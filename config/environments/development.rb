@@ -41,6 +41,7 @@ config.action_mailer.smtp_settings = {
   :authentication       => 'plain',
   :enable_starttls_auto => true  }
   config.action_mailer.default_url_options = { :host => "183.82.4.69:3000" }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
