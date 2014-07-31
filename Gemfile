@@ -38,6 +38,7 @@ group :development, :test do
  gem "factory_girl_rails", "~> 4.2.1"
  end
 gem 'faker'
+gem 'will_paginate'
 # Use unicorn as the app server
 # gem 'unicorn'
 

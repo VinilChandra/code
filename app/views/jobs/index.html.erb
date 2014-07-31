@@ -34,7 +34,7 @@ window.onload=function(){
          </div>
         
   <div class="job-tbl">
-          <table width="100%" border="0" id="alternatecolor" cellspacing="0" cellpadding="0" style="margin-bottom:300px;">
+          <table width="100%" border="0" id="alternatecolor" cellspacing="0" cellpadding="0" style="margin-bottom:100px;">
   <tr>
     <th width="17%" align="left">Job Title</th>
     <th width="44%" align="left">Description</th>
@@ -50,12 +50,21 @@ window.onload=function(){
     <td class="expiry"><%=j.validdate%></td>
     <td align="center" valign="middle">
     
-      <a href="/jobregistrations/<%= j.id %>">Apply job</a></td>
+    
+    
+    <%permission=Userjob.where(["user_id = :uid AND jobregistration_id = :jid", { uid: @current.id, jid: j.id}])%>
+  
+    <% if permission.blank?%>
+      <a href="/jobregistrations/<%= j.id %>"> Apply now</a></td>
+      <% else %>
+       <a href="/jobs"> Applied</a></td>
+       <%end%>
       
   </tr>
   <% end %>
-          </table>
+          </table> <h2><%= will_paginate %></h2>
 
       </div>
   </div>
 </div>
+
