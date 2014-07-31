@@ -18,7 +18,7 @@ def create
                render 'new'
       end
     else
-      p "captcha failed"
+     
         flash[:notice] = "captcha did not match"
       render 'new'
     end

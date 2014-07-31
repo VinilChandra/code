@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :users
       resources :jobs
           resources :trainings
-
+resources :futurejobs
        resources :sessions, only: [:new, :create, :destroy]
 resources :password_resets
   get 'static_pages/home'

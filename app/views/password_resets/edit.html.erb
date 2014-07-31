@@ -1,3 +1,4 @@
+<div style="width:250px; margin:0px auto 30px auto; padding-top:150px;">
 <h1>Reset Password</h1>
 
 <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
@@ -11,13 +12,15 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <div class="field" style="padding:10px;">
     <%= f.label :password %>
     <%= f.password_field :password %>
   </div>
-  <div class="field">
+  <div class="field" style="padding:10px;">
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
   </div>
-  <div class="actions"><%= f.submit "Update Password" %></div>
+   <div class="actions" style="padding:10px; margin-bottom:300px;"><%= f.submit "Update Password" %></div>
+  
 <% end %>
+</div>

@@ -11,18 +11,21 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
 
 
-  validates :phone, presence: true,numericality: { greater_than_or_equal_to: 10 }
+  validates :phone, presence: true,numericality: { greater_than_or_equal_to: 1000000000 ,:message => "Invalid  number"}
 
   validates :address,presence: true
   validates :state,presence: true
   validates :dist,presence: true
   validates :citytown,presence: true
-  validates :mandal,presence: true
-  #validates :password, presence: true
-#  DateRegex = /(?<month>\d{1,2})\/(?<day>\d{1,2})\/(?<year>\d{4})/
-
-# validates_format_of :birth, :with => DateRegex
-
+ 
+validates_each :birth do |record, attr, value|
+  begin
+    Date.parse(value)
+  rescue
+    record.errors.add(attr, "Invalid date")
+  end
+end
+ 
     def User.new_remember_token
     SecureRandom.urlsafe_base64
   end

@@ -1,14 +1,11 @@
+
 <div class="banner-wrapper">
     <!-- Start BODY section -->
     <div id="wowslider-container1">
     <div class="ws_images">
-            <%= link_to image_tag("job.jpg", alt: "job picture",title: "job"), '#' %>
-        <!-- <a href="#"><img src="images/training.jpg" alt="training"  title="training" id="wows1"/></a> -->
-        <%= link_to image_tag("training.jpg", alt: "training"), '#' %>
-        <!-- <a href="#"><img src="images/csr.jpg" alt="csr"  title="csr" id="wows2"/></a> -->
-        <%= link_to image_tag("csr.jpg", alt: "job picture"), '#' %>
-
-        <!-- <a href="#"><img src="images/common.jpg" alt="common" title="common" id="wows3"/></a> -->
+    <%= link_to image_tag("job.jpg", alt: "job picture",title: "job"), '#' %>
+    <%= link_to image_tag("training.jpg", alt: "training"), '#' %>
+    <%= link_to image_tag("csr.jpg", alt: "job picture"), '#' %>
     <%= link_to image_tag("common.jpg", alt: "job picture"), '#' %>
     </div>
     </div>
@@ -16,12 +13,16 @@
     <!-- End BODY section -->
 </div>
 <div class="content-wrapper">
-    <div class="content-main">
+  <div class="content-main">
     <a href="job.html">
         <div class="content-box">
             <div class="content-box-inr1">
-            <!-- <img src="images/job-bg.png" width="318" height="189" alt="JOB" /></div> -->
-                    <%= link_to image_tag("job-bg.png", alt: "job picture"), '#' %></div>
+            <%if signed_in?%>
+              <%= link_to image_tag("job-bg.png", alt: "job picture"), '/jobs' %>
+              <%else%>
+              <%= link_to image_tag("job-bg.png", alt: "job picture"), '/static_pages/jobs' %>
+               <%end%>
+              </div>
             <div class="content-box-inr2">
                 <p>National Policy on Skill Development has set a target for providing skills to 500 million people by 2022...</p>
             </div>
@@ -30,22 +31,27 @@
         <a href="training.html">
         <div class="content-box">
             <div class="content-box-inr1">
-            <!-- <img src="images/training-img.png" width="318" height="189" alt="JOB" /></div> -->
-                <%= link_to image_tag("training-img.png", alt: "job picture"), '#' %></div>
+          <%if signed_in?%>
+
+         <%= link_to image_tag("training-img.png", alt: "job picture"), '/trainings' %>
+          <%else%>
+         <%= link_to image_tag("training-img.png", alt: "job picture"), '/static_pages/training' %>
+         <%end%>
+         </div>
             <div class="content-box-inr2">
                 <p>Today’s competitive world demands trained, certified and skilled manpower to address the challenges of growth...</p>
             </div>
         </div>
         </a>
         <a href="csr.html">
-<div class="content-box" style="margin-right:0px;">
+         <div class="content-box" style="margin-right:0px;">
             <div class="content-box-inr1">
-            <!-- <img src="images/csr-img.png" width="318" height="190" alt="JOB" /></div> -->
-             <%= link_to image_tag("csr-img.png", alt: "job picture"), '#' %></div>
+              <%= link_to image_tag("csr-img.png", alt: "job picture"), '/static_pages/csr' %>
+            </div>
             <div class="content-box-inr2">
                 <p>Due to the congenial growth environment   created at the grassroot level, there is a huge demand of skilled ...</p>
+            </div>
           </div>
-        </div>
         </a>
     </div>
 </div>

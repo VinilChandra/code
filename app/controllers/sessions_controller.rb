@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
       if user && user.authenticate(params[:session][:password])
         sign_in user
-        flash[:notice] = " Logged In ."
+        # flash[:notice] = " "
         redirect_to  jobs_path
       else
 

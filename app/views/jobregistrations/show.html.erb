@@ -32,13 +32,13 @@ body {
   <tr>
     <td width="147" align="right">Name </td>
     <td colspan="5"><label>
-      <input type="text" name="jobregistration[name]" id="textfield" />
+      <input type="text" name="jobregistration[name]" id="textfield" value = "<%=@current.name%>"/>
     </label></td>
   </tr>
   <tr>
 
     <td align="right">Age </td>
-    <td colspan="5"><input type="text" name="jobregistration[age]" id="textfield2" value = "<%=@current.name%>"/></td>
+    <td colspan="5"><input type="text" name="jobregistration[age]" id="textfield2" /></td>
   </tr>
 <!-- ________________________________________ -->
 
@@ -85,7 +85,15 @@ body {
     <td align="right">Qualification  </td>
     <td colspan="5"><label>
       <select name="jobregistration[qualification]" id="select">
-        <option>Please Select</option>
+        <option>None</option>
+        <option>Upto 10th standard</option>
+        <option>ITI</option>
+        <option>Polytechnic</option>
+        <option>10th standard</option>
+        <option>Intermediate</option>
+        <option>Degree</option>
+        <option>PG</option>
+        <option>Engineering</option>
       </select>
     </label></td>
   </tr>

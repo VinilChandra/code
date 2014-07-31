@@ -4,7 +4,7 @@
   <title>Panimutlu</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
-
+<meta http-equiv="X-Frame-Options" content="allow">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -24,7 +24,7 @@
         <div class="logo">
         <table border="0" cellpadding="0" cellspacing="0" width="0">
 <!-- <td align="center" height="120px" valign="middle"> -->
-         <tr><td height="120px" align="center" valign="middle"><%= link_to image_tag("logo.png", alt: "logo panimutlu"), '//static_pages/home' %>
+         <tr><td height="120px" align="center" valign="middle"><%= link_to image_tag("logo.png", alt: "logo panimutlu"), '/static_pages/home' %>
             </td></tr></table>
       </div>
         <div class="header-right">
@@ -60,8 +60,8 @@
                     <li><a href="/jobs"  style="margin-right:15px;">Jobs</a></li>
                      <li><a href="/trainings" style="margin-right:15px;">Training</a></li>
                     <%else%>
-                     <li><a href="/signup"  style="margin-right:15px;">Jobs</a></li>
-                      <li><a href="/signup" style="margin-right:15px;">Training</a></li>
+                     <li><a href="/static_pages/jobs"  style="margin-right:15px;">Jobs</a></li>
+                      <li><a href="/static_pages/training" style="margin-right:15px;">Training</a></li>
                      <%end%>
 
                     <li><a href="/static_pages/csr" style="margin-right:15px;">CSR</a></li>
@@ -75,7 +75,7 @@
   </div>
 </div>
 <% if flash[:notice] %>
-<div style="width:100%; height:32px;line-height:32px; text-align:center; color:#009dd4;font-weight:bold;float:left;font-size:16px;"><%= flash[:notice]%></div>
+<div style="width:100%; height:32px;line-height:32px; text-align:center; color:#2E2E2E;float:left;font-size:16px;"><%= flash[:notice]%></div>
 <%end%>
 <%= yield %>
 

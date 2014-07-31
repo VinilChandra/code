@@ -29,16 +29,11 @@ window.onload=function(){
           <div class="job-tbl-head-txt">
               Current Openings
             </div>
-<div class="job-tbl-head-btn2">
-              Training
-            </div>
-<div class="job-tbl-head-btn1">
-              Future Jobs
-            </div>
-        </div>
-        <div class="job-tbl">
-
-
+                <a href = '/trainings'><div class="job-tbl-head-btn2">Training</div></a>
+              <a href='/futurejobs'> <div class="job-tbl-head-btn1">Future Jobs</div></a>
+         </div>
+        
+  <div class="job-tbl">
           <table width="100%" border="0" id="alternatecolor" cellspacing="0" cellpadding="0" style="margin-bottom:300px;">
   <tr>
     <th width="17%" align="left">Job Title</th>
@@ -54,7 +49,9 @@ window.onload=function(){
     <td class="company"><%=j.name %></td>
     <td class="expiry"><%=j.validdate%></td>
     <td align="center" valign="middle">
-      <a href="/jobregistrations/<%= j.id %>">Apply Job </a></td>
+   
+      <a href="/jobregistrations/<%= j.id %>">Apply job</a></td>
+      
   </tr>
   <% end %>
           </table>
