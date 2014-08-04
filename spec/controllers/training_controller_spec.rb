@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe TrainingController do
+describe TrainingsController do
 
 end

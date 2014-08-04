@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+
+
   def jobs
   end
 
@@ -30,6 +32,8 @@ class StaticPagesController < ApplicationController
 
  def training
  end
+
+
 
 
 end

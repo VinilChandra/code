@@ -20,7 +20,7 @@ describe User do
       )
       expect(user).to_not be_valid
 end
- it "is invalid without a name" do	 
+ it "is invalid without a name" do
     expect(build(:user, name: nil)).to \
       have(1).errors_on(:name)
  end
@@ -28,15 +28,15 @@ end
    expect(build(:user, state: nil)).to \
       have(1).errors_on(:state)
  end
- it "is invalid without a dist" do	
+ it "is invalid without a dist" do
    expect(build(:user, dist: nil)).to \
       have(1).errors_on(:dist)
  end
- it "is invalid without a citytown" do 	
+ it "is invalid without a citytown" do
   expect(build(:user, citytown: nil)).to \
       have(1).errors_on(:citytown)
  end
- it "is invalid without a phone"do    
+ it "is invalid without a phone"do
     expect(build(:user, phone: nil)).to \
       have(2).errors_on(:phone)
  end
@@ -44,10 +44,7 @@ end
     expect(build(:user, phone: '850020k13')).to \
       have(1).errors_on(:phone)
  end
- it "is invalid without a mandal"do
-  expect(build(:user, mandal: nil)).to \
-      have(1).errors_on(:mandal)
- end
+
  it "is invalid without an email address"do
   expect(build(:user, email: nil)).to \
       have(2).errors_on(:email)

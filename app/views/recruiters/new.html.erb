@@ -1,0 +1,57 @@
+<div class="content-wrapper" style="background:url(/assets/register-bg.jpg) no-repeat; height:520px;">
+    <div class="register-main">
+        <div class="register-cnt">
+<%= form_for (@recruiter) do |f| %>
+<%= render 'errormessages/error_messages', object: f.object %>
+          <table width="640" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right">Name : </td>
+    <td><label>
+      <input name="recruiter[name]" type="text" class="form-style2" id="textfield" <%if params.has_key?("recruiter")%> value = "<%= params[:recruiter][:name]%>"<%end%>/>
+    </label></td>
+    <td align="right">Email : </td>
+    <td><input name="recruiter[email]" type="text" class="form-style2" id="textfield2"  <%if params.has_key?("recruiter")%> value = "<%= params[:recruiter][:email]%>"<%end%>/></td>
+  </tr>
+  <tr>
+    <td align="right">Password:</td>
+    <td><input name="recruiter[password]" type="password" class="form-style2" id="textfield3" /></td>
+    <td align="right">Re-Password :</td>
+    <td><input name="recruiter[password_confirmation]" type="password" class="form-style2" id="textfield4" /></td>
+  </tr>
+
+
+      <tr>
+    <td align="right">Phone : </td>
+    <td><input name="recruiter[phone]" type="text" class="form-style2" id="textfield6" <%if params.has_key?("recruiter")%> value = "<%= params[:recruiter][:phone]%>"<%end%>/></td>
+    <td align="right">Compnay Name : </td>
+    <td><input name="recruiter[companyname]" type="text" class="form-style2" id="textfield6" <%if params.has_key?("recruiter")%> value = "<%= params[:recruiter][:companyname]%>"<%end%>/></td>
+  </tr>
+
+  <tr>
+    <td align="right">Address : </td>
+    <td colspan="3" style="padding:0px;"><table width="400" border="0" align="left" cellpadding="0" cellspacing="0">
+      <tr>
+        <td rowspan="2"><label>
+          <textarea name="recruiter[address]" id="textarea" cols="20" rows="4"><%if params.has_key?("recruiter")%><%= params[:recruiter][:address]%><%end%></textarea>
+        </label></td>
+      </tr>
+    </table></td>
+    </tr>
+
+
+    <tr>
+    <td colspan="4" align="center" valign="middle"><%= show_simple_captcha %>
+  <%# binding.pry %>
+
+    </label></td>
+    </tr>
+  <tr>
+    <td colspan="4" align="center" valign="middle"><label>
+      <input name="button" type="submit" class="btn-style2" id="button" value="Submit" />
+    </label></td>
+    </tr>
+</table>
+<% end %>
+      </div>
+  </div>
+<script type="text/javascript" src="/assets/statescript.js"></script>

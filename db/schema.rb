@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730103122) do
+ActiveRecord::Schema.define(version: 20140804062452) do
 
   create_table "futurejobs", force: true do |t|
     t.string   "title"
@@ -73,6 +73,20 @@ ActiveRecord::Schema.define(version: 20140730103122) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "recruiters", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "companyname"
+    t.string   "password_digest"
+    t.string   "phone"
+    t.text     "companyaddr"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remember_token"
+  end
+
+  add_index "recruiters", ["remember_token"], name: "index_recruiters_on_remember_token", using: :btree
 
   create_table "simple_captcha_data", force: true do |t|
     t.string   "key",        limit: 40

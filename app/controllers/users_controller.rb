@@ -7,7 +7,6 @@ end
 def create
  @user = User.new(user_params)
 
- # binding.pry
  if simple_captcha_valid?
 
     if @user.save
@@ -18,7 +17,7 @@ def create
                render 'new'
       end
     else
-     
+
         flash[:notice] = "captcha did not match"
       render 'new'
     end

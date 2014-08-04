@@ -1,4 +1,6 @@
 class PasswordResetsController < ApplicationController
+
+    before_filter :require_login
   def new
   end
 
@@ -10,14 +12,14 @@ class PasswordResetsController < ApplicationController
     redirect_to root_url
   else
     flash[:notice]="Enter valid email"
-    render :new 
+    render :new
   end
 end
-  
+
   def edit
     @user = User.find_by_password_reset_token!(params[:id])
   end
-  
+
   def update
     @user = User.find_by_password_reset_token!(params[:id])
     if @user.password_reset_sent_at < 2.hours.ago
@@ -28,4 +30,11 @@ end
       render :edit
     end
   end
+  private
+   def require_login
+  unless signed_in?
+    flash[:error] = "You must be logged in to access this section"
+    redirect_to signin_path # halts request cycle
+  end
+end
 end

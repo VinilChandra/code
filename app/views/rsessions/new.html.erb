@@ -1,0 +1,28 @@
+
+<div class="content-wrapper" style="background:url(/assets/login-main-bg.jpg) no-repeat top center; height:470px; margin-top:10px;">
+    <div class="login-main">
+    <div class="login-b1">
+
+<%= form_for(:rsession, url: rsessions_path) do |f| %>
+
+      <input name="session[email]" type="text" class="form-style" onfocus="if(this.value==this.defaultValue)this.value=''"
+                onblur="if(this.value=='')this.value=this.defaultValue" value="Email ID" />
+    </div>
+    <div class="login-b2">
+
+
+        <input name="session[password]" type="password" class="form-style" onfocus="if(this.value==this.defaultValue)this.value=''"
+                onblur="if(this.value=='')this.value=this.defaultValue" value="Password" id="Password" />
+    </div>
+    <div class="login-b3">
+        <p><%= link_to "forgotten password?", new_password_reset_path %></p>
+    </div>
+    <div class="login-b4">
+        <input name="button" type="submit" class="login-btn1" id="button" value="SignIn" />
+    </div>
+<% end %>
+    <div class="login-b5">
+        <a href="/signup">Create an account</a>
+    </div>
+</div>
+</div>
