@@ -4,6 +4,7 @@ class TrainingregistrationsController < ApplicationController
   before_filter :require_login
   def show
    # binding.pry
+   @current = current_user
    @trainings=Trainingregistration.new
   end
 
@@ -11,6 +12,7 @@ class TrainingregistrationsController < ApplicationController
      @training = Trainingregistration.new(user_params)
 
       if @training.save
+        trainingid =  params[:trainingregistration][:hiddenid].to_i
        Usertraining.create(user_id: current_user.id, trainingregistration_id: trainingid)
        flash[:notice] = "You have successfully applied for the job"
        redirect_to trainings_path

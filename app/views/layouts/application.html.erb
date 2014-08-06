@@ -15,7 +15,7 @@
 <link rel="large icon" href="http://www.panimutlu.com/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="http://www.panimutlu.com/images/favicon.ico" type="image/x-icon">
 
-<!-- <link href="Welcome%20to%20Panimutlu.com_files/style.css" rel="stylesheet" type="text/css"> -->
+
 
 </head>
 <body>
@@ -23,23 +23,30 @@
 <div class="header-main">
         <div class="logo">
         <table border="0" cellpadding="0" cellspacing="0" width="0">
-<!-- <td align="center" height="120px" valign="middle"> -->
+
          <tr><td height="120px" align="center" valign="middle"><%= link_to image_tag("logo.png", alt: "logo panimutlu"), '/static_pages/home' %>
             </td></tr></table>
       </div>
         <div class="header-right">
             <table border="0" cellpadding="0" cellspacing="0">
             <tbody><tr>
-            <!-- <td style="background:url(images/header-style-bg.png) repeat-y;" align="center" valign="middle" width="220"><img src="Welcome%20to%20Panimutlu.com_files/social-icons.png" alt="social" usemap="#Map" border="0"></td> -->
-             <td style="background:url(../assets/header-style-bg.png) repeat-y;" align="center" valign="middle" width="220"><%= link_to image_tag("social-icons.png", alt: "Rails"), '#' %>
-           <!--  <td style="background:url(images/header-style-bg.png) repeat-y;" align="center" valign="middle" width="220"><img src="Welcome%20to%20Panimutlu.com_files/contact-img.png" alt="Phone"></td> -->
+           
            <td style="background:url(../assets/header-style-bg.png) repeat-y;" align="center" valign="middle" width="220"><%= link_to image_tag("contact-img.png", alt: "Rails"), '#' %>
+           <% if !csigned_in? && !signed_in? %>
+                 <td style="background:url(../assets/header-style-bg.png) repeat-y;" align="center" valign="middle" width="220"> <a href="/recruitersignin" class="login-btn">Recruiter</a></td>
+                 <%end%>
+          
             <td style="background:url(../assets/header-style-bg.png) repeat-y;" align="right" height="60" valign="middle" width="220">
 
-            <% if signed_in? %>
-             <a href="/signout" class="login-btn">Logout</a>
+            <% if  signed_in?%>
 
+              <a href="/signout" class="login-btn">Logout</a>
+              <% elsif csigned_in?%> 
+              <a href="/csignout" class="login-btn">Logout</a>
+
+                   
              <%else%>
+
             <a href="/signin" class="login-btn">Login</a>
             <a href="/users/new" class="register-btn">Register</a></td>
             <%end%>
@@ -50,24 +57,26 @@
           <ul id="menu">
 
                    <li><a href="/static_pages/home" style="margin-right:15px;">Home</a></li>
-                  <%else%>
-                   <li><a href="/static_pages/home" style="margin-right:15px;">Home</a></li>
-                   <%end%>
 
 
-                       <% if signed_in? %>
+
+
+
+                       <% if  signed_in?%>
                     <li><a href="/jobs"  style="margin-right:15px;">Jobs</a></li>
                      <li><a href="/trainings" style="margin-right:15px;">Training</a></li>
-                    <%else%>
+                    <%elsif csigned_in? %>
+                    <li><a href="/jobsapplied"  style="margin-right:15px;">Jobs list</a></li>
+                     <li><a href="/trainingsapplied" style="margin-right:15px;">Training list</a></li>
+                      <%else%>
+
                      <li><a href="/static_pages/jobs"  style="margin-right:15px;">Jobs</a></li>
                       <li><a href="/static_pages/training" style="margin-right:15px;">Training</a></li>
                      <%end%>
 
                     <li><a href="/static_pages/csr" style="margin-right:15px;">CSR</a></li>
                     <li><a href="/static_pages/about">About</a></li>
-                    <%if signed_in?%>
-                    <li><a href="/jobs"><%=@current_user.email%></a></li>
-                    <%end%>
+
                  </ul>
               </div>
             </td>

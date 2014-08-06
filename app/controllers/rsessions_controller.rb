@@ -1,15 +1,18 @@
 class RsessionsController < ApplicationController
-def new
+
+
+ def new
 
   end
 
   def create
      recruiter = Recruiter.find_by(email: params[:session][:email].downcase)
-
+    
     if recruiter && recruiter.authenticate(params[:session][:password])
-      sign_in recruiter
+      csign_in recruiter
 
-      redirect_to  jobs_path
+       # p recruiter.companyname
+      redirect_to  "/jobsapplied"
     else
 
       flash[:notice] = 'Invalid email/password combination'
@@ -19,7 +22,7 @@ def new
 
 
   def destroy
-    sign_out
+    csign_out
     redirect_to root_url
   end
     # Before filters

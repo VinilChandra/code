@@ -6,4 +6,8 @@ class UserMailer < ActionMailer::Base
     @url  = "http://gmail.com/login"
     mail(:to => user.email, :subject => "Re:Forgot panimutlu account password")
   end
+  def mail_recap(email)
+  	@email=email
+    mail(:to => email, :subject => "Weekly email from footyaddicts")
+  end
 end

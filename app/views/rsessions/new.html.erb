@@ -3,7 +3,7 @@
     <div class="login-main">
     <div class="login-b1">
 
-<%= form_for(:rsession, url: rsessions_path) do |f| %>
+<%= form_for(:session, url: rsessions_path) do |f| %>
 
       <input name="session[email]" type="text" class="form-style" onfocus="if(this.value==this.defaultValue)this.value=''"
                 onblur="if(this.value=='')this.value=this.defaultValue" value="Email ID" />
@@ -22,7 +22,7 @@
     </div>
 <% end %>
     <div class="login-b5">
-        <a href="/signup">Create an account</a>
+        <a href="/signup">Create an company account</a>
     </div>
 </div>
 </div>

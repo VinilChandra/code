@@ -8,11 +8,11 @@ test:
   adapter: mysql
   database: panimutlu_test
   username: root
-  password: password
+  password: passw0rd
   host: localhost
 production:
   adapter: mysql
   database: panimutlu_production
   username: root
-  password: password
+  password: passw0rd
   host: localhost

@@ -19,14 +19,17 @@ resources :password_resets
   get 'static_pages/csr'
 
     get '/signout', to: 'sessions#destroy',     via: 'delete'
+    get '/csignout', to: 'rsessions#destroy',     via: 'delete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
  match '/signup',  to: 'users#new',            via: 'get'
    match '/signin',  to: 'sessions#new',         via: 'get'
    match '/signin',  to: 'sessions#new',         via: 'get'
+ match '/jobsapplied',  to: 'jobsapplied#index',            via: 'get'
+ match '/trainingsapplied',  to: 'trainingsapplied#index',            via: 'get'
 
-
+match '/recruitersignin', to:'rsessions#new',via: 'get'
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
 match ':controller(/:action(/:id))',:via => :get

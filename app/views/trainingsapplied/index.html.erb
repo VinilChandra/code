@@ -29,8 +29,8 @@ window.onload=function(){
           <div class="job-tbl-head-txt">
               Current Openings
             </div>
-                <a href = '/trainings'><div class="job-tbl-head-btn2">Training</div></a>
-              <a href='/futurejobs'> <div class="job-tbl-head-btn1">Future Jobs</div></a>
+                <a href = '#'><div class="job-tbl-head-btn2">Training</div></a>
+              <a href='#'> <div class="job-tbl-head-btn1">Future Jobs</div></a>
          </div>
         
   <div class="job-tbl">
@@ -38,32 +38,32 @@ window.onload=function(){
   <tr>
     <th width="17%" align="left">Job Title</th>
     <th width="44%" align="left">Description</th>
-    <th width="15%" align="left">Company</th>
-    <th width="13%" align="left">Valid Date</th>
-    <th width="11%" align="center">Apply</th>
-  </tr>
-   <% @jobs.each do |j| %>
+    <th width="15%" align="left"> name</th>
+    <th width="13%" align="left"> email</th>
+    <th width="11%" align="center">Applied on</th>
+  <% @trainings.each do |j| %>
+    <%@u = Usertraining.where(trainingregistration_id: j.id)%>
+    <% @u.each do |u| %>
+        <% @p = User.where(id: u.user_id)%> 
+       
+    
   <tr>
+         
     <td class="jobs"><%= j.title%></td>
     <td> <%= j.desc %></td>
-    <td class="company"><%=j.name %></td>
-    <td class="expiry"><%=j.validdate%></td>
+    <td class="company"><%= @p[0].name %></td>
+    <td class="expiry"><%= @p[0].email%></td>
+     <td class="expiry"><%=u.created_at%></td>
     <td align="center" valign="middle">
-    
-    
-    
-    <%permission=Userjob.where(["user_id = :uid AND jobregistration_id = :jid", { uid: @current.id, jid: j.id}])%>
-  
-    <% if permission.blank?%>
-      <a href="/jobregistrations/<%= j.id %>"> Apply now</a></td>
-      <% else %>
-       <a href="/jobs"> Applied</a>
-       <%end%></td>
       
   </tr>
   <% end %>
-          </table> <h2><%= will_paginate %></h2>
-
+  <%end%>
+   
+       
+ 
+  
+        
       </div>
   </div>
 </div>

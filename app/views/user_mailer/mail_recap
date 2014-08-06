@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td, th {
+    border: 1px solid green;
+}
+
+th {
+    background-color: green;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+<h1>List of employees who applied for jobs</h1>
+ <table >
+  <tr>
+    <th>Job Title</th>
+    <th>Description</th>
+    <th> name</th>
+    <th> email</th>
+    <th>Applied on</th>
+    </tr>
+<%@companyname=Recruiter.where(email: @email)%>
+
+    <%@jobs=Job.where(name: @companyname[0].companyname)%>
+  <% @jobs.each do |j| %>
+    <%@u = Userjob.where(jobregistration_id: j.id)%>
+    <% @u.each do |u| %>
+        <% @p = User.where(id: u.user_id)%> 
+   
+  <tr>
+         
+    <td class="jobs"><%= j.title%></td>
+    <td> <%= j.desc %></td>
+    <td class="company"><%= @p[0].name %></td>
+    <td class="expiry"><%= @p[0].email%></td>
+     <td class="expiry"><%=u.created_at%></td>
+    <td align="center" valign="middle">
+      
+  </tr>
+  <% end %>
+  <%end%>
+  </table>
+<h1>List of employees who applied for training</h1>
+  <table >
+  <tr>
+    <th>Job Title</th>
+    <th>Description</th>
+    <th> name</th>
+    <th> email</th>
+    <th>Applied on</th>
+    </tr>
+<%@companyname=Recruiter.where(email: @email)%>
+
+    <%@trainings=Training.where(name: @companyname[0].companyname)%>
+  <% @trainings.each do |j| %>
+    <%@u = Usertraining.where(trainingregistration_id: j.id)%>
+    <% @u.each do |u| %>
+        <% @p = User.where(id: u.user_id)%> 
+   
+  <tr>
+         
+    <td class="jobs"><%= j.title%></td>
+    <td> <%= j.desc %></td>
+    <td class="company"><%= @p[0].name %></td>
+    <td class="expiry"><%= @p[0].email%></td>
+     <td class="expiry"><%=u.created_at%></td>
+    <td align="center" valign="middle">
+      
+  </tr>
+  <% end %>
+  <%end%>
+  </table>
+</body>
+</html>
+

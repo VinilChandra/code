@@ -9,7 +9,7 @@ class JobsController < ApplicationController
   end
 
  def require_login
-  unless signed_in?
+  unless signed_in?||csigned_in?
     flash[:error] = "You must be logged in to access this section"
     redirect_to signin_path # halts request cycle
   end

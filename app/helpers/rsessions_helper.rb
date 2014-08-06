@@ -1,19 +1,21 @@
 module RsessionsHelper
- def sign_in(recruiter)
+ def csign_in(recruiter)
+
     remember_token = Recruiter.new_remember_token
     cookies.permanent[:remember_token] = remember_token
     recruiter.update_attribute(:remember_token, Recruiter.digest(remember_token))
     self.current_recruiter = recruiter
+
   end
 
-  def sign_out
+  def csign_out
     current_recruiter.update_attribute(:remember_token,
                                   Recruiter.digest(Recruiter.new_remember_token))
     cookies.delete(:remember_token)
     self.current_recruiter = nil
   end
 
-  def signed_in?
+  def csigned_in?
     !current_recruiter.nil?
   end
 
@@ -27,6 +29,7 @@ module RsessionsHelper
   end
 
   def current_recruiter
+
     remember_token = Recruiter.digest(cookies[:remember_token])
     @current_recruiter ||= Recruiter.find_by(remember_token: remember_token)
   end

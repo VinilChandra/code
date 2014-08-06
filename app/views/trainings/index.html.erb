@@ -48,12 +48,17 @@ window.onload=function(){
     <td class="jobs"><%= t.title%></td>
     <td> <%= t.desc %></td>
     <td class="company"><%=t.name %></td>
-    <td class="expiry"><%=t.validdate%></td>
-    <td align="center" valign="middle">
-      <a href="/trainingregistrations/<%= t.id %>">Apply Training </a></td>
+    <td class="expiry"><%=t.validdate%></td>  
+   <td align="center" valign="middle">
+            <%permission=Usertraining.where(["user_id = :uid AND trainingregistration_id = :tid", { uid: @current.id, tid: t.id}])%>  
+    <% if permission.blank?%>
+     <a href="/trainingregistrations/<%= t.id %>">Apply Now </a></td>
+      <% else %>
+       <a href="/trainings"> Applied</a>
+       <%end%></td>
   </tr>
   <% end %>
-          </table>
+          </table><h2><%= will_paginate %></h2>
 
       </div>
   </div>

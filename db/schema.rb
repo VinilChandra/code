@@ -13,6 +13,20 @@
 
 ActiveRecord::Schema.define(version: 20140804062452) do
 
+  create_table "admins", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "phone"
+    t.text     "address"
+    t.string   "state"
+    t.string   "dist"
+    t.string   "citytown"
+    t.string   "mandal"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "futurejobs", force: true do |t|
     t.string   "title"
     t.string   "desc"
