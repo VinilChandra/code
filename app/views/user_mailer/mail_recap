@@ -5,6 +5,7 @@
 <style>
 table, td, th {
     border: 1px solid green;
+    padding:8px;
 }
 
 th {
@@ -39,7 +40,7 @@ th {
     <td class="company"><%= @p[0].name %></td>
     <td class="expiry"><%= @p[0].email%></td>
      <td class="expiry"><%=u.created_at%></td>
-    <td align="center" valign="middle">
+    
       
   </tr>
   <% end %>
@@ -69,7 +70,7 @@ th {
     <td class="company"><%= @p[0].name %></td>
     <td class="expiry"><%= @p[0].email%></td>
      <td class="expiry"><%=u.created_at%></td>
-    <td align="center" valign="middle">
+    
       
   </tr>
   <% end %>

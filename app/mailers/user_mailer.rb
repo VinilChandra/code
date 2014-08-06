@@ -8,6 +8,6 @@ class UserMailer < ActionMailer::Base
   end
   def mail_recap(email)
   	@email=email
-    mail(:to => email, :subject => "Weekly email from footyaddicts")
+    mail(:to => email, :subject => "Weekly report from panimutlu.com ")
   end
 end
