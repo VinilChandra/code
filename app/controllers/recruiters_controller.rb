@@ -10,7 +10,7 @@ def create
 
     if @recruiter.save
         flash[:notice] = "You have successfully registered "
-          redirect_to signin_path
+          redirect_to recruitersignin_path
 
         else
                render 'new'

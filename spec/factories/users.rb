@@ -12,6 +12,11 @@
       dist "rangareddy"
       citytown "hyderabad"
       mandal "jubilee hills"
+      birth "10/04/1998"
  sequence(:email) { |n| "text#{n}@example.com"}
+ end
+
+ factory :invalid_user, parent: :user do |f|
+  f.name nil 
  end
  end
