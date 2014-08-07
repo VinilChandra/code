@@ -10,6 +10,7 @@ resources :futurejobs
        resources :sessions, only: [:new, :create, :destroy]
         resources :rsessions, only: [:new, :create, :destroy]
 resources :password_resets
+resources :password_recruiterresets
   get 'static_pages/home'
 
   get 'static_pages/help'

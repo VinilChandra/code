@@ -1,0 +1,12 @@
+<div style="width:250px; margin:0px auto 30px auto; padding-top:150px;">
+<h1 style="padding:15px;">Reset Password</h1>
+
+<%= form_tag password_recruiterresets_path, :method => :post do %>
+  <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email] %>
+  </div>
+  <div class="actions" style="padding:10px; margin-bottom:300px;"><%= submit_tag "Reset Password" %></div>
+
+<% end %>
+  </div>

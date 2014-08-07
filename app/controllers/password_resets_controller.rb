@@ -1,6 +1,6 @@
 class PasswordResetsController < ApplicationController
 
-    before_filter :require_login
+    #before_filter :require_login
   def new
   end
 

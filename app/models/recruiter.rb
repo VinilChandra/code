@@ -30,6 +30,22 @@ def self.mail_recap
     end
   end
 
+  before_create { generate_recruitertoken(:remember_token) }
+
+  def send_recruiterpassword_reset
+    generate_recruitertoken(:password_recruiterreset_token)
+    self.password_recruiterreset_sent_at = Time.zone.now
+    save!
+    UserMailer.passwordrecruiter_reset(self).deliver
+  end
+
+  def generate_recruitertoken(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while Recruiter.exists?(column => self[column])
+  end
+  private
+
   private
 
     def create_remember_token
